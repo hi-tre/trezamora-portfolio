@@ -208,7 +208,7 @@ footer::after{content:'';position:absolute;border-radius:50%;pointer-events:none
     <a class="nav-logo" href="index.html"><span class="nav-logo-dot"></span>Tre Zamora</a>
     <ul class="nav-links">
       <li><a href="about.html" class="active">About</a></li>
-      <li><a href="mailto:tzamora@hawaii.edu" class="nav-cta">Contact</a></li>
+      <li><a class="nav-cta js-mail" data-u="tzamora" data-d="hawaii.edu" href="#">Contact</a></li>
     </ul>
     <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
@@ -351,7 +351,7 @@ footer::after{content:'';position:absolute;border-radius:50%;pointer-events:none
       <p class="cta-body">I'm looking for a team that takes product seriously, where decisions get made for real reasons, scope has a spine, and the work ends up mattering to the people it was built for. Product Manager roles are the target. If that sounds like your organization, I want to talk.</p>
       <div class="cta-btns">
         <a href="index.html#work" class="btn-primary">View the Work</a>
-        <a href="mailto:tzamora@hawaii.edu" class="btn-secondary" style="border-color:rgba(255,255,255,.2);color:var(--white)">tzamora@hawaii.edu</a>
+        <a class="btn-secondary js-mail" data-u="tzamora" data-d="hawaii.edu" href="#" style="border-color:rgba(255,255,255,.2);color:var(--white)"><span class="js-mail-text" data-u="tzamora" data-d="hawaii.edu"></span></a>
       </div>
     </div>
   </div>
@@ -370,7 +370,7 @@ footer::after{content:'';position:absolute;border-radius:50%;pointer-events:none
       </nav>
       <div class="f-contact">
         <span class="f-contact-lbl">Get in touch</span>
-        <a href="mailto:tzamora@hawaii.edu">tzamora@hawaii.edu</a>
+        <a class="js-mail" data-u="tzamora" data-d="hawaii.edu" href="#"><span class="js-mail-text" data-u="tzamora" data-d="hawaii.edu"></span></a>
       </div>
     </div>
     <div class="f-bottom">
@@ -506,6 +506,18 @@ document.querySelectorAll('.reveal,.reveal-r').forEach(el=>ro.observe(el));
       el.addEventListener('mouseenter',function(){el.classList.add('wh-on');});
       el.addEventListener('mouseleave',function(){el.classList.remove('wh-on');});
     }
+  });
+})();
+</script>
+<script>
+/* email anti-harvest: assemble addresses at runtime so scrapers can't read them */
+(function(){
+  function build(el){return (el.dataset.u||'')+String.fromCharCode(64)+(el.dataset.d||'');}
+  document.querySelectorAll('a.js-mail').forEach(function(el){
+    if(el.dataset.u&&el.dataset.d) el.setAttribute('href','mailto:'+build(el));
+  });
+  document.querySelectorAll('.js-mail-text').forEach(function(el){
+    if(el.dataset.u&&el.dataset.d) el.textContent=build(el);
   });
 })();
 </script>

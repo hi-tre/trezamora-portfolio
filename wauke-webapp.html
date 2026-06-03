@@ -185,7 +185,7 @@ footer{background:#021d32;padding:3rem 0 2rem;position:relative;overflow:hidden}
     <ul class="nav-links">
       <li><a href="about.html">About</a></li>
       <li><a href="index.html#work" class="active">Work</a></li>
-      <li><a href="mailto:tzamora@hawaii.edu" class="nav-cta">Contact</a></li>
+      <li><a class="nav-cta js-mail" data-u="tzamora" data-d="hawaii.edu" href="#">Contact</a></li>
     </ul>
     <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
@@ -302,7 +302,7 @@ footer{background:#021d32;padding:3rem 0 2rem;position:relative;overflow:hidden}
       <nav class="f-nav"><a href="about.html">About</a><a href="https://www.linkedin.com/in/trezamora" target="_blank" rel="noopener">LinkedIn</a></nav>
       <div class="f-contact">
         <span class="f-contact-lbl">Get in touch</span>
-        <a href="mailto:tzamora@hawaii.edu">tzamora@hawaii.edu</a>
+        <a class="js-mail" data-u="tzamora" data-d="hawaii.edu" href="#"><span class="js-mail-text" data-u="tzamora" data-d="hawaii.edu"></span></a>
       </div>
     </div>
     <div class="f-bottom"><span class="f-copy">© 2025 · Tre Zamora</span></div>
@@ -387,6 +387,18 @@ document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
       el.addEventListener('mouseenter',function(){el.classList.add('wh-on');});
       el.addEventListener('mouseleave',function(){el.classList.remove('wh-on');});
     }
+  });
+})();
+</script>
+<script>
+/* email anti-harvest: assemble addresses at runtime so scrapers can't read them */
+(function(){
+  function build(el){return (el.dataset.u||'')+String.fromCharCode(64)+(el.dataset.d||'');}
+  document.querySelectorAll('a.js-mail').forEach(function(el){
+    if(el.dataset.u&&el.dataset.d) el.setAttribute('href','mailto:'+build(el));
+  });
+  document.querySelectorAll('.js-mail-text').forEach(function(el){
+    if(el.dataset.u&&el.dataset.d) el.textContent=build(el);
   });
 })();
 </script>

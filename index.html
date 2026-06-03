@@ -446,7 +446,7 @@ footer::after{
     <a class="nav-logo" href="index.html"><span class="nav-logo-dot"></span>Tre Zamora</a>
     <ul class="nav-links">
       <li><a href="about.html">About</a></li>
-      <li><a href="mailto:tzamora@hawaii.edu" class="nav-cta">Contact</a></li>
+      <li><a class="nav-cta js-mail" data-u="tzamora" data-d="hawaii.edu" href="#">Contact</a></li>
     </ul>
     <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
@@ -558,7 +558,7 @@ footer::after{
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
             <span>Connect on LinkedIn</span>
           </a>
-          <a href="mailto:tzamora@hawaii.edu" class="icon-btn mail" aria-label="Email Tre Zamora">
+          <a class="icon-btn mail js-mail" data-u="tzamora" data-d="hawaii.edu" href="#" aria-label="Email Tre Zamora">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
             <span>Email Me</span>
           </a>
@@ -577,7 +577,7 @@ footer::after{
         <p class="c-body">I'm looking for a team that takes product seriously, where decisions get made for real reasons, scope has a spine, and the work ends up mattering to the people it was built for. If that sounds like your organization, I want to talk.</p>
         <div class="c-links">
           <div class="c-link c-static"><span class="c-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6-5.3-6-10a6 6 0 0 1 12 0c0 4.7-6 10-6 10z"/><circle cx="12" cy="11" r="2.2"/></svg></span><span>Honolulu, Hawaiʻi</span></div>
-          <a href="mailto:tzamora@hawaii.edu" class="c-link"><span class="c-ico">✉</span><span>tzamora@hawaii.edu</span></a>
+          <a class="c-link js-mail" data-u="tzamora" data-d="hawaii.edu" href="#"><span class="c-ico">✉</span><span class="js-mail-text" data-u="tzamora" data-d="hawaii.edu"></span></a>
           <a href="https://www.linkedin.com/in/trezamora" target="_blank" class="c-link"><span class="c-ico">in</span><span>linkedin.com/in/trezamora</span></a>
         </div>
       </div>
@@ -606,7 +606,7 @@ footer::after{
       </nav>
       <div class="f-contact">
         <span class="f-contact-lbl">Get in touch</span>
-        <a href="mailto:tzamora@hawaii.edu">tzamora@hawaii.edu</a>
+        <a class="js-mail" data-u="tzamora" data-d="hawaii.edu" href="#"><span class="js-mail-text" data-u="tzamora" data-d="hawaii.edu"></span></a>
       </div>
     </div>
     <div class="f-bottom">
@@ -795,6 +795,18 @@ document.querySelectorAll('.reveal,.reveal-r').forEach(el=>ro.observe(el));
 
 })();
 
+</script>
+<script>
+/* email anti-harvest: assemble addresses at runtime so scrapers can't read them */
+(function(){
+  function build(el){return (el.dataset.u||'')+String.fromCharCode(64)+(el.dataset.d||'');}
+  document.querySelectorAll('a.js-mail').forEach(function(el){
+    if(el.dataset.u&&el.dataset.d) el.setAttribute('href','mailto:'+build(el));
+  });
+  document.querySelectorAll('.js-mail-text').forEach(function(el){
+    if(el.dataset.u&&el.dataset.d) el.textContent=build(el);
+  });
+})();
 </script>
 </body>
 </html>

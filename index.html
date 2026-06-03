@@ -71,7 +71,8 @@ footer{background:#021d32;padding:3rem 0 2rem}
 
 /* RESPONSIVE */
 @media(max-width:640px){
-  .nav-links{display:none;position:absolute;top:68px;left:0;right:0;background:var(--off-white);flex-direction:column;padding:1.5rem 2.5rem;gap:1.5rem;border-bottom:1px solid var(--rule)}
+  .nav-inner,.hero .hero-inner{padding-left:1.5rem;padding-right:1.5rem}
+  .nav-links{display:none;position:absolute;top:68px;left:0;right:0;background:var(--off-white);flex-direction:column;padding:1.5rem 1.5rem;gap:1.5rem;border-bottom:1px solid var(--rule)}
   .nav-links.open{display:flex}
   .nav-cta{display:none}
   .nav-toggle{display:flex}
@@ -91,7 +92,7 @@ footer{background:#021d32;padding:3rem 0 2rem}
 /* HERO */
 .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;background:var(--off-white)}
 .hero-inner{position:relative;z-index:1;width:100%;max-width:1160px;margin:0 auto;padding:0 2.5rem;padding-top:68px;display:flex;flex-direction:column;justify-content:center;min-height:100vh}
-.h-name{font-family:var(--fs);font-size:clamp(5rem,11vw,10rem);font-weight:800;line-height:.88;letter-spacing:-.035em;color:var(--ink);margin-bottom:2.5rem;opacity:0;animation:fu .9s .2s both}
+.h-name{font-family:var(--fs);font-size:clamp(2rem,8vw,7rem);font-weight:800;line-height:.92;letter-spacing:-.035em;color:var(--ink);margin-bottom:2.5rem;opacity:0;animation:fu .9s .2s both;white-space:nowrap}
 .h-name span{color:var(--blue);display:block}
 .h-bottom{display:grid;grid-template-columns:1fr auto;gap:4rem;align-items:end;opacity:0;animation:fu .8s .5s both}
 .h-title{font-family:var(--fs);font-size:clamp(1.1rem,2vw,1.4rem);font-weight:600;color:var(--navy);margin-bottom:.9rem;letter-spacing:-.01em}
@@ -454,10 +455,10 @@ footer::after{
 
 <section id="top" class="hero">
   <div class="hero-inner">
-    <h1 class="h-name">Tre<span>Zamora</span></h1>
+    <h1 class="h-name">Discovery<span>to Delivery</span></h1>
     <div class="h-bottom">
       <div class="h-left">
-        <p class="h-title">Product Manager · Honolulu, Hawaiʻi</p>
+        <p class="h-title">Tre Zamora · Honolulu, Hawaiʻi</p>
         <p class="h-sub">I think at a systems level and execute at a delivery level. With a background in UX, design, and applied AI, I own discovery, define the roadmap, and build toward it directly. I'm sharpest at the part most Product Managers avoid: scoping what doesn't get built, and explaining why.</p>
         <div class="h-btns">
           <a href="#work" class="btn-primary">View Projects →</a>
@@ -721,17 +722,17 @@ document.querySelectorAll('.reveal,.reveal-r').forEach(el=>ro.observe(el));
       wrap.className='char-wrap';
       var inner=document.createElement('span');
       inner.className='char';
-      inner.textContent=(ch===' ')?' ':ch;
+      inner.textContent=(ch===' ')?' ':ch;
       wrap.appendChild(inner);
       parent.appendChild(wrap);
       allChars.push(inner);
     });
   }
-  /* Tre stays on first line (inline-blocks), Zamora on second (inside display:block span) */
+  /* First word stays on line one (inline-blocks), rest on line two (inside display:block span) */
   hname.innerHTML='';
-  appendChars('Tre',hname);
+  appendChars('Discovery',hname);
   var zaSpan=document.createElement('span');
-  appendChars('Zamora',zaSpan);
+  appendChars('to Delivery',zaSpan);
   hname.appendChild(zaSpan);
   var startDelay=window._tzaArrived?600:200;
   allChars.forEach(function(ch,i){

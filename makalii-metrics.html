@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Makaliʻi Metrics, Tre Zamora · Product Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --navy:#043257;--blue:#28608a;--blue-mid:#1e4f73;--blue-lt:#d6e8f5;
+  --yellow:#ffd45c;--yellow-dk:#e6b800;--yellow-pale:#fff8dc;
+  --ink:#0e1a24;--ink-mid:#2c3e4d;--muted:#6b808f;
+  --rule:#dde5eb;--surface:#f4f7fa;--white:#ffffff;--off-white:#f9fbfd;
+  --fs:'Syne',system-ui,sans-serif;--fi:'Inter',system-ui,sans-serif;
+  --ease:cubic-bezier(.4,0,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--fi);background:var(--off-white);color:var(--ink);line-height:1.6;overflow-x:hidden}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:var(--blue-lt);border-radius:3px}
+.container{max-width:1160px;margin:0 auto;padding:0 2.5rem}
+#nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:.3s var(--ease)}
+#nav.scrolled{background:rgba(249,251,253,.96);backdrop-filter:blur(18px);border-bottom:1px solid var(--rule)}
+.nav-inner{max-width:1160px;margin:0 auto;padding:0 2.5rem;height:68px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--fs);font-size:1.1rem;font-weight:700;text-decoration:none;color:var(--navy);letter-spacing:-.01em;display:flex;align-items:center;gap:.5rem}
+.nav-logo-dot{width:8px;height:8px;background:var(--yellow);border-radius:50%;flex-shrink:0}
+.nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center}
+.nav-links a{font-family:var(--fi);font-size:.75rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--muted);transition:color .22s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1.5px;background:var(--yellow);transition:width .28s var(--ease)}
+.nav-links a:hover,.nav-links a.active{color:var(--navy)}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+.nav-cta{background:var(--navy)!important;color:var(--white)!important;padding:.55rem 1.5rem;font-size:.7rem!important;letter-spacing:.1em!important}
+.nav-cta:hover{background:var(--blue)!important}
+.nav-cta::after{display:none!important}
+.nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.nav-toggle span{display:block;width:22px;height:1.5px;background:var(--ink)}
+/* Light nav over dark hero (before scroll) */
+#nav:not(.scrolled) .nav-logo{color:#fff}
+#nav:not(.scrolled) .nav-links a{color:rgba(255,255,255,.78)}
+#nav:not(.scrolled) .nav-links a:hover,#nav:not(.scrolled) .nav-links a.active{color:#fff}
+#nav:not(.scrolled) .nav-cta{background:rgba(255,255,255,.12)!important;color:#fff!important;border:1px solid rgba(255,255,255,.28)}
+#nav:not(.scrolled) .nav-cta:hover{background:#fff!important;color:var(--navy)!important;border-color:#fff}
+#nav:not(.scrolled) .nav-toggle span{background:#fff}
+.btn-primary{display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 2rem;background:var(--navy);color:var(--white);font-family:var(--fi);font-size:.76rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:2px solid var(--navy);transition:.22s var(--ease)}
+.btn-primary:hover{background:var(--blue);border-color:var(--blue)}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s var(--ease),transform .65s var(--ease)}
+.reveal.vis{opacity:1;transform:translateY(0)}
+/* NAV, white on dark hero */
+#nav:not(.scrolled) .nav-logo{color:var(--white)}
+#nav:not(.scrolled) .nav-links a{color:rgba(255,255,255,.65)}
+#nav:not(.scrolled) .nav-links a:hover,#nav:not(.scrolled) .nav-links a.active{color:var(--white)}
+#nav:not(.scrolled) .nav-cta{background:var(--yellow)!important;color:var(--navy)!important}
+#nav:not(.scrolled) .nav-toggle span{background:var(--white)}
+/* CS HERO */
+.cs-hero{padding:8rem 0 5rem;background:var(--navy);position:relative;overflow:hidden}
+.cs-hero::before{content:'';position:absolute;border-radius:50%;pointer-events:none;width:850px;height:850px;background:radial-gradient(circle,var(--blue-mid) 0%,transparent 65%);opacity:.22;right:-220px;top:-220px;animation:bg-blob-a 14s ease-in-out infinite alternate}
+.cs-hero::after{content:'';position:absolute;border-radius:50%;pointer-events:none;width:600px;height:600px;background:radial-gradient(circle,var(--blue) 0%,transparent 70%);opacity:.14;left:-100px;bottom:-150px;animation:bg-blob-b 10s ease-in-out infinite alternate}
+.cs-hero .container{position:relative;z-index:1;max-width:860px}
+.cs-eyebrow{font-size:.65rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--yellow);margin-bottom:1rem;display:flex;align-items:center;gap:.6rem}
+.cs-eyebrow::before{content:'';display:block;width:20px;height:2px;background:var(--yellow)}
+.cs-title{font-family:var(--fs);font-size:clamp(1.85rem,3.6vw,2.8rem);font-weight:800;line-height:1.06;color:var(--white);letter-spacing:-.025em;margin-bottom:.8rem;text-wrap:balance}
+.cs-sub{font-size:1rem;color:rgba(255,255,255,.72);margin-bottom:1rem;line-height:1.65;max-width:680px}
+.cs-editorial{font-size:.88rem;font-style:italic;color:rgba(255,212,92,.85);margin-bottom:1.5rem;line-height:1.6;max-width:620px}
+.cs-tags{font-size:.72rem;color:rgba(255,255,255,.5);font-weight:500;margin-bottom:2rem;letter-spacing:.02em}
+.bgs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.bg{font-size:.58rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .85rem;background:rgba(255,255,255,.1);color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.18)}
+.bg.award{background:var(--yellow);color:var(--navy);border-color:var(--yellow)}
+.cs-meta-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid rgba(255,255,255,.12);margin-top:2.5rem}
+.cs-meta-cell{padding:1rem 1.4rem;border-right:1px solid rgba(255,255,255,.12)}
+.cs-meta-cell:last-child{border-right:none}
+.cs-meta-lbl{font-size:.56rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:.3rem}
+.cs-meta-val{font-size:.82rem;color:var(--white);font-weight:500;line-height:1.4}
+/* CS BODY */
+.cs-body{padding:5rem 0;background:var(--white)}
+.cs-body .container{max-width:860px}
+.cs-section{margin-bottom:3.5rem}
+.cs-section-label{font-size:.62rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:.9rem;padding-bottom:.6rem;border-bottom:2px solid var(--yellow);display:block}
+.cs-section p{font-size:.97rem;color:var(--ink-mid);line-height:1.88}
+.cs-section p+p{margin-top:.9rem}
+.cs-section ul{list-style:none;padding:0;margin-top:.6rem}
+.cs-section li{font-size:.95rem;color:var(--ink-mid);line-height:1.72;padding:.6rem 0 .6rem 1.5rem;position:relative;border-bottom:1px solid var(--surface)}
+.cs-section li:last-child{border-bottom:none}
+.cs-section li::before{content:'';position:absolute;left:0;top:1.1rem;width:6px;height:6px;background:var(--yellow);border-radius:50%}
+.cs-quote{font-family:var(--fs);font-size:1.15rem;font-weight:700;color:var(--navy);border-left:4px solid var(--yellow);padding:1rem 0 1rem 1.5rem;margin:2.5rem 0;line-height:1.55;letter-spacing:-.01em}
+/* METRICS */
+.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);margin:1.5rem 0 2.5rem}
+.metric-cell{background:var(--surface);padding:1.4rem 1.2rem;display:flex;flex-direction:column;gap:.3rem}
+.metric-val{font-family:var(--fs);font-size:2rem;font-weight:800;color:var(--navy);line-height:1}
+.metric-lbl{font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);line-height:1.3}
+.metric-sub{font-size:.72rem;color:var(--blue);margin-top:.1rem}
+.stats-group{margin:1.5rem 0 2.5rem}
+.stats-group-label{font-size:.6rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:.7rem;padding-bottom:.5rem;border-bottom:1px solid var(--rule)}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule)}
+.stat-cell{background:var(--white);border-left:3px solid var(--yellow);padding:1rem 1.2rem;display:flex;flex-direction:column;gap:.2rem}
+.stat-cell.blue{border-left-color:var(--navy)}
+.stat-cell.quiet{border-left-color:var(--rule)}
+.stat-num{font-family:var(--fs);font-size:1.5rem;font-weight:800;color:var(--navy);line-height:1}
+.stat-desc{font-size:.75rem;color:var(--ink-mid);line-height:1.4}
+.stat-note{font-size:.67rem;color:var(--muted);margin-top:.15rem}
+/* IMG PLACEHOLDER */
+.cs-img-ph{width:100%;height:280px;background:linear-gradient(140deg,var(--navy) 0%,var(--blue-mid) 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;margin:2rem 0 3rem;position:relative;overflow:hidden}
+.cs-img-ph::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-48deg,transparent 0,transparent 22px,rgba(255,255,255,.02) 22px,rgba(255,255,255,.02) 23px)}
+.cs-img-ph-lbl{font-size:.6rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);position:relative;z-index:1}
+.cs-img-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:2}
+/* CS NAV */
+.cs-nav{background:var(--surface);padding:2.5rem 0;border-top:1px solid var(--rule)}
+.pn-row{display:flex;justify-content:space-between;align-items:center;gap:2rem}
+.back-link{font-size:.75rem;font-weight:500;color:var(--muted);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;gap:.5rem;transition:color .2s}
+.back-link:hover{color:var(--navy)}
+.pn-link{font-family:var(--fi);font-size:.8rem;font-weight:500;color:var(--blue);text-decoration:none;letter-spacing:.03em;transition:color .2s}
+.pn-link:hover{color:var(--navy)}
+/* FOOTER */
+footer{background:#021d32;padding:3rem 0 2rem;position:relative;overflow:hidden}
+.footer-main{display:flex;align-items:flex-start;justify-content:space-between;gap:2rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.08);position:relative;z-index:1}
+.f-brand{display:flex;flex-direction:column;gap:.4rem}
+.f-logo{font-family:var(--fs);font-size:.95rem;font-weight:700;color:rgba(255,255,255,.85)}
+.f-tagline{font-size:.67rem;color:rgba(255,255,255,.38);letter-spacing:.05em}
+.f-nav{display:flex;gap:2rem;align-items:center}
+.f-nav a{font-family:var(--fi);font-size:.7rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:rgba(255,255,255,.5);transition:color .2s}
+.f-nav a:hover{color:rgba(255,255,255,.9)}
+.f-contact{display:flex;flex-direction:column;gap:.4rem;text-align:right}
+.f-contact-lbl{font-size:.57rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3)}
+.f-contact a{font-size:.78rem;color:rgba(255,255,255,.65);text-decoration:none;transition:color .2s}
+.f-contact a:hover{color:var(--white)}
+.f-bottom{padding-top:1.2rem;position:relative;z-index:1}
+.f-copy{font-size:.65rem;color:rgba(255,255,255,.28);letter-spacing:.05em}
+/* PAGE VEIL + CURSOR + SCROLL BAR */
+.page-veil{position:fixed;inset:0;background:var(--navy);z-index:9990;transform:scaleY(0);pointer-events:none;will-change:transform}
+.page-veil.leaving{transform-origin:bottom center;animation:veil-cover .52s cubic-bezier(.77,0,.18,1) forwards;pointer-events:all}
+.page-veil.arriving{transform:scaleY(1);transform-origin:top center;animation:veil-reveal .52s .06s cubic-bezier(.77,0,.18,1) forwards}
+@keyframes veil-cover{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes veil-reveal{from{transform:scaleY(1)}to{transform:scaleY(0)}}
+.scroll-bar{position:fixed;top:0;left:0;height:2px;width:0%;background:var(--yellow);z-index:9995;pointer-events:none}
+@media(pointer:fine){
+  body{cursor:none}a,button{cursor:none}
+  .cur-dot,.cur-ring{position:fixed;left:0;top:0;border-radius:50%;pointer-events:none;will-change:transform}
+  .cur-dot{width:8px;height:8px;z-index:9998;background:var(--white);mix-blend-mode:difference}
+  .cur-ring{width:40px;height:40px;z-index:9997;border:1.5px solid rgba(255,255,255,.55);mix-blend-mode:difference;opacity:.9}
+  body.csr-link .cur-dot{width:50px;height:50px}
+  body.csr-link .cur-ring{opacity:0}
+}
+@keyframes bg-blob-a{from{transform:translate(0,0) scale(1)}to{transform:translate(50px,40px) scale(1.12)}}
+@keyframes bg-blob-b{from{transform:translate(0,0) scale(1.06)}to{transform:translate(-40px,28px) scale(.93)}}
+@media(max-width:700px){
+  .metrics-grid{grid-template-columns:repeat(2,1fr)}
+  .stats-row{grid-template-columns:1fr}
+  .cs-meta-row{grid-template-columns:1fr 1fr}
+  .cs-meta-cell{border-bottom:1px solid rgba(255,255,255,.12)}
+}
+@media(max-width:640px){
+  .nav-links{display:none;position:absolute;top:68px;left:0;right:0;background:var(--off-white);flex-direction:column;padding:1.5rem 2.5rem;gap:1.5rem;border-bottom:1px solid var(--rule)}
+  .nav-links.open{display:flex}
+  .nav-cta{display:none}
+  .nav-toggle{display:flex}
+  .footer-main{flex-direction:column;gap:1.5rem}
+  .f-contact{text-align:left}
+  .pn-row{flex-direction:column;text-align:center}
+  .cs-meta-row{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  .cur-dot,.cur-ring{display:none!important}
+  .page-veil{display:none!important}
+  .cs-hero::before,.cs-hero::after{animation:none}
+}
+</style>
+<style>
+/* WORD HOVER BLUR */
+.wh-word{display:inline;transition:filter .38s cubic-bezier(.4,0,.2,1),opacity .38s cubic-bezier(.4,0,.2,1);}
+.wh-on .wh-word{filter:blur(4px);opacity:.28;}
+.wh-on .wh-word:hover{filter:blur(0px);opacity:1;}
+@media(prefers-reduced-motion:reduce){.wh-on .wh-word{filter:none;opacity:.55}.wh-on .wh-word:hover{opacity:1}}
+</style>
+</head>
+<body>
+<div class="page-veil" id="page-veil"></div>
+<div class="cur-dot" id="cur-dot"></div>
+<div class="cur-ring" id="cur-ring"></div>
+<div class="scroll-bar" id="scroll-bar"></div>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html"><span class="nav-logo-dot"></span>Tre Zamora</a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="index.html#work" class="active">Work</a></li>
+      <li><a href="mailto:tzamora@hawaii.edu" class="nav-cta">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="cs-hero">
+  <div class="container">
+    <p class="cs-eyebrow">Case Study 01</p>
+    <h1 class="cs-title">Makaliʻi Metrics</h1>
+    <p class="cs-sub">Soil Decision-Intelligence for Hawaiʻi's Regenerative Agriculture Community</p>
+    <p class="cs-editorial">The first decision wasn't what to build. It was what the platform would never do, and why that boundary was the product.</p>
+    <div class="bgs"><span class="bg">AgTech</span><span class="bg">Active Development</span></div>
+    <p class="cs-tags">Product Management · UX Research · Roadmap · Applied Product Lead · ʻāina-first Design</p>
+    <div class="cs-meta-row">
+      <div class="cs-meta-cell">
+        <div class="cs-meta-lbl">Role</div>
+        <div class="cs-meta-val">Applied Product Manager · UX Hybrid</div>
+      </div>
+      <div class="cs-meta-cell">
+        <div class="cs-meta-lbl">Engagement Type</div>
+        <div class="cs-meta-val">Embedded · Ongoing</div>
+      </div>
+      <div class="cs-meta-cell">
+        <div class="cs-meta-lbl">Backlog Progress</div>
+        <div class="cs-meta-val">9 of 24 items shipped · Active Sprint</div>
+      </div>
+      <div class="cs-meta-cell">
+        <div class="cs-meta-lbl">Roadmap Structure</div>
+        <div class="cs-meta-val">3-phase · 90-day framework with gate criteria</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cs-body">
+  <div class="container">
+
+    <div class="cs-section reveal">
+      <span class="cs-section-label">Overview</span>
+      <p>Makaliʻi Metrics is an emerging soil testing and analytics lab built in Hawaiʻi, for Hawaiʻi. It pairs modern soil analysis with Hawaiʻi-specific interpretation to help farmers, ranchers, researchers, and ʻāina stewards make faster, more informed decisions about their land. My engagement is a hybrid Product Manager and UX role, embedded directly in the product operation, not advising from the outside.</p>
+      <p>This is what Applied Product Lead work looks like in practice: I'm in the build environment alongside the team, owning the product discovery layer, shaping the roadmap, and making scope decisions that the engineering team can execute against. The product is actively shipping against those decisions.</p>
+    </div>
+
+    <div class="cs-section reveal">
+      <span class="cs-section-label">Metrics at a Glance</span>
+      <p>These numbers represent the current state of an active engagement. They are not outcomes. They are the operational reality of a product in progress, being built against decisions that are documented below.</p>
+      <div class="metrics-grid">
+        <div class="metric-cell">
+          <div class="metric-val">24</div>
+          <div class="metric-lbl">Active Backlog Items</div>
+          <div class="metric-sub">Tracked across 5 workflow stages in ClickUp</div>
+        </div>
+        <div class="metric-cell">
+          <div class="metric-val">9</div>
+          <div class="metric-lbl">Items Shipped</div>
+          <div class="metric-sub">2 Sprint Complete · 7 Dev Complete</div>
+        </div>
+        <div class="metric-cell">
+          <div class="metric-val">10</div>
+          <div class="metric-lbl">Heuristic Findings</div>
+          <div class="metric-sub">Across Nielsen's 10 usability principles</div>
+        </div>
+        <div class="metric-cell">
+          <div class="metric-val">3</div>
+          <div class="metric-lbl">Roadmap Phases</div>
+          <div class="metric-sub">Day 1–30 · 31–60 · 61–90 with gate criteria</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-img-ph"><span class="cs-img-ph-lbl">Product Screenshot, Dashboard View</span></div>
+
+    <div class="cs-section reveal">
+      <span class="cs-section-label">The Problem</span>
+      <p>Hawaiʻi's farming and land stewardship communities are rich in traditional ecological knowledge, but they have been underserved by data infrastructure built elsewhere, for elsewhere. Mainland soil labs return generic recommendations that miss the specificity of Hawaiian volcanic soils, microclimates, and regenerative practice. Practitioners wait weeks for data that doesn't fully serve them, then make land decisions with incomplete intelligence.</p>
+      <p>The product problem wasn't just speed or accuracy. It was relevance. A soil analytics platform that doesn't understand the land it's analyzing isn't a better tool. It is the same extraction logic with a faster turnaround.</p>
+    </div>
+
+    <div class="cs-section reveal">
+      <span class="cs-section-label">My Role</span>
+      <p>This is an embedded engagement. I'm not a consultant reviewing outputs. I'm in the product operation. My responsibilities span the full discovery-to-delivery arc:</p>
+      <ul>
+        <li>Led product discovery and definition, establishing the product spine and the boundaries that prevent scope creep from fragmenting the platform's core value</li>
+        <li>Conducted a full heuristic evaluation of the existing product experience, surfacing friction points across all 10 of Nielsen's usability principles</li>
+        <li>Designed and facilitated the Kōkua User Testing Session (02/19/26) with real practitioners, not proxy users, to ensure findings reflect how stewards actually interact with soil data</li>
+        <li>Translated user testing findings into a severity-weighted backlog, structured so the engineering team works the highest-impact fixes first</li>
+        <li>Built and actively maintains a 3-phase, 90-day roadmap with explicit gate criteria at each phase transition</li>
+        <li>Maintained an ʻāina-first design perspective throughout, evaluating every product decision against cultural alignment: language choices, data presentation, and interpretation logic</li>
+      </ul>
+    </div>
+
+    <div class="cs-img-ph"><span class="cs-img-ph-lbl">Roadmap Framework · Backlog Structure</span></div>
+
+    <div class="cs-section reveal">
+      <span class="cs-section-label">Key Decisions</span>
+      <p>The decisions that shaped this product aren't in the feature list. They're in the scope boundaries and the framing choices that came before the build:</p>
+      <ul>
+        <li>ʻāina-first as a product strategy decision, not a branding layer. Language, terminology, and data presentation were all evaluated against whether they serve Hawaiian land stewardship practice or impose an outside framework onto it</li>
+        <li>Severity-weighted backlog structure, ensuring the engineering team's sprint cycles are ordered by user impact, not development convenience</li>
+        <li>Phased roadmap with gate criteria, so the team has explicit conditions for moving from discovery into execution, not an open-ended build with no defined checkpoints</li>
+        <li>User testing with actual practitioners. The Kōkua session was not a usability test with recruited participants. It was a structured session with a working farmer and an intern from the community the product serves</li>
+      </ul>
+    </div>
+
+    <div class="cs-section reveal">
+      <span class="cs-section-label">Research and Delivery Breakdown</span>
+
+      <div class="stats-group">
+        <p class="stats-group-label">Heuristic Evaluation</p>
+        <div class="stats-row">
+          <div class="stat-cell blue">
+            <div class="stat-num">2</div>
+            <div class="stat-desc">High Severity findings</div>
+            <div class="stat-note">Visibility of System Status · Recognition Over Recall</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num">5</div>
+            <div class="stat-desc">Medium Severity findings</div>
+            <div class="stat-note">Prioritized for next sprint cycle</div>
+          </div>
+          <div class="stat-cell quiet">
+            <div class="stat-num">1</div>
+            <div class="stat-desc">Identified Strength, preserved by design</div>
+            <div class="stat-note">Aesthetic and Minimalist Design: not changed</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats-group">
+        <p class="stats-group-label">Kōkua User Testing Session, 02/19/26</p>
+        <div class="stats-row">
+          <div class="stat-cell">
+            <div class="stat-num">2</div>
+            <div class="stat-desc">Participants, real practitioners</div>
+            <div class="stat-note">1 primary tester (Mālama Maui Nui intern) · 1 observing farmer</div>
+          </div>
+          <div class="stat-cell blue">
+            <div class="stat-num">3</div>
+            <div class="stat-desc">Key insight themes surfaced</div>
+            <div class="stat-note">Language accessibility · ʻĀina-first framing · Community sharing model</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num">1</div>
+            <div class="stat-desc">Structured, task-oriented session</div>
+            <div class="stat-note">Moderated protocol with observation notes and severity tagging</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats-group">
+        <p class="stats-group-label">Backlog and Sprint Status</p>
+        <div class="stats-row">
+          <div class="stat-cell blue">
+            <div class="stat-num">9<span style="font-size:1rem">/24</span></div>
+            <div class="stat-desc">Items shipped, 37.5% completion</div>
+            <div class="stat-note">2 Sprint Complete · 7 Dev Complete</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num">4</div>
+            <div class="stat-desc">Items On Hold</div>
+            <div class="stat-note">Pending payment flow, user registration, and CRM-database integration</div>
+          </div>
+          <div class="stat-cell quiet">
+            <div class="stat-num">2</div>
+            <div class="stat-desc">Severity levels in active use</div>
+            <div class="stat-note">Urgent and Normal, triaged against sprint goals</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats-group">
+        <p class="stats-group-label">90-Day Roadmap Gate Criteria</p>
+        <div class="stats-row">
+          <div class="stat-cell">
+            <div class="stat-num">1–30</div>
+            <div class="stat-desc">Context Absorption</div>
+            <div class="stat-note">Product spine · stakeholder alignment · discovery complete</div>
+          </div>
+          <div class="stat-cell blue">
+            <div class="stat-num">31–60</div>
+            <div class="stat-desc">First Operational Win</div>
+            <div class="stat-note">Ship highest-severity fixes · validate core dashboard flow</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num">61–90</div>
+            <div class="stat-desc">Product Signal Feedback</div>
+            <div class="stat-note">Adoption signals: weekly logins · repeat uploads · crop practice changes</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-section reveal">
+      <span class="cs-section-label">Outcomes</span>
+      <p>The product is in active development and shipping against a structured backlog. User testing surfaced concrete direction for the dashboard experience. The ʻāina-first framing has shaped the product vocabulary and the interpretation layer. The platform is being built to serve Hawaiian land stewards on their own terms, not adapted from a generic agricultural data model.</p>
+      <p>The roadmap provides the team clear gates before moving from discovery into execution, and the backlog ensures engineering cycles are ordered by user impact. Nine items shipped. Twenty-four tracked. Work ongoing.</p>
+    </div>
+
+    <blockquote class="cs-quote">The goal isn't faster soil data. It's soil intelligence that knows where it comes from.</blockquote>
+
+  </div>
+</div>
+
+<div class="cs-nav">
+  <div class="container">
+    <div class="pn-row">
+      <a href="index.html#work" class="back-link">← Back to Work</a>
+      <a href="coral-collective-ai.html" class="pn-link">Coral Collective AI →</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-main">
+      <div class="f-brand">
+        <span class="f-logo">Tre Zamora</span>
+        <span class="f-tagline">Applied Product Manager · Applied Product Lead</span>
+      </div>
+      <nav class="f-nav"><a href="about.html">About</a><a href="https://www.linkedin.com/in/trezamora" target="_blank" rel="noopener">LinkedIn</a></nav>
+      <div class="f-contact">
+        <span class="f-contact-lbl">Get in touch</span>
+        <a href="mailto:tzamora@hawaii.edu">tzamora@hawaii.edu</a>
+      </div>
+    </div>
+    <div class="f-bottom"><span class="f-copy">© 2025 · Tre Zamora</span></div>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40),{passive:true});
+const tog=document.querySelector('.nav-toggle'),nl=document.querySelector('.nav-links');
+if(tog)tog.addEventListener('click',()=>nl.classList.toggle('open'));
+if(nl)nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nl.classList.remove('open')));
+const ro=new IntersectionObserver(entries=>entries.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add('vis');ro.unobserve(e.target);}
+}),{threshold:.06,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+</script>
+<script>
+(function(){
+  var veil=document.getElementById('page-veil');var _nav=false;
+  if(veil){
+    if(sessionStorage.getItem('tza-nav')==='1'){
+      sessionStorage.removeItem('tza-nav');window._tzaArrived=true;
+      veil.classList.add('arriving');
+      var _clr=function(){veil.style.transform='scaleY(0)';veil.style.animation='none';veil.classList.remove('arriving');};
+      veil.addEventListener('animationend',_clr,{once:true});setTimeout(_clr,800);
+    }
+    document.querySelectorAll('a[href]').forEach(function(a){
+      var h=a.getAttribute('href');
+      if(!h||h.charAt(0)==='#'||h.indexOf('mailto:')===0||/^https?:/.test(h)||a.target==='_blank')return;
+      a.addEventListener('click',function(e){
+        if(_nav)return;e.preventDefault();_nav=true;
+        sessionStorage.setItem('tza-nav','1');veil.classList.add('leaving');
+        var dest=h;
+        veil.addEventListener('animationend',function(){window.location.href=dest;},{once:true});
+        setTimeout(function(){window.location.href=dest;},680);
+      });
+    });
+  }
+  if(window.matchMedia&&window.matchMedia('(pointer:fine)').matches){
+    var dot=document.getElementById('cur-dot'),ring=document.getElementById('cur-ring');
+    if(dot&&ring){
+      var mx=window.innerWidth/2,my=window.innerHeight/2,rx=mx,ry=my;
+      document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;dot.style.transform='translate('+(mx-4)+'px,'+(my-4)+'px)';},{passive:true});
+      (function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.transform='translate('+(rx-20)+'px,'+(ry-20)+'px)';requestAnimationFrame(loop);})();
+      document.querySelectorAll('a,button').forEach(function(el){
+        el.addEventListener('mouseenter',function(){document.body.classList.add('csr-link');});
+        el.addEventListener('mouseleave',function(){document.body.classList.remove('csr-link');});
+      });
+    }
+  }
+  document.querySelectorAll('.btn-primary,.btn-secondary').forEach(function(btn){
+    btn.addEventListener('mousemove',function(e){var r=btn.getBoundingClientRect();btn.style.transform='translate('+(e.clientX-r.left-r.width/2)*.22+'px,'+(e.clientY-r.top-r.height/2)*.22+'px)';});
+    btn.addEventListener('mouseleave',function(){btn.style.transform='';});
+  });
+})();
+</script>
+<script>
+(function(){
+  var sb=document.getElementById('scroll-bar');
+  if(sb){
+    function u(){var m=document.documentElement.scrollHeight-window.innerHeight;sb.style.width=m<=0?'0%':Math.min(window.scrollY/m*100,100)+'%';}
+    window.addEventListener('scroll',u,{passive:true});u();
+  }
+})();
+</script>
+<script>
+/* WORD HOVER BLUR */
+(function(){
+  document.querySelectorAll('.sec-head, .cs-title').forEach(function(el){
+    if(el.dataset.wh)return;
+    el.dataset.wh='1';
+    var nodes=Array.from(el.childNodes);
+    el.innerHTML='';
+    var wordCount=0;
+    nodes.forEach(function(n){
+      if(n.nodeType===3){
+        n.textContent.split(/(\s+)/).forEach(function(part){
+          if(!part.length)return;
+          if(/^\s+$/.test(part)){el.appendChild(document.createTextNode(part));}
+          else{var sp=document.createElement('span');sp.className='wh-word';sp.textContent=part;el.appendChild(sp);wordCount++;}
+        });
+      } else {el.appendChild(n.cloneNode(true));}
+    });
+    if(wordCount>=2){
+      el.addEventListener('mouseenter',function(){el.classList.add('wh-on');});
+      el.addEventListener('mouseleave',function(){el.classList.remove('wh-on');});
+    }
+  });
+})();
+</script>
+</body>
+</html>

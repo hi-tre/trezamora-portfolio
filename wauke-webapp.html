@@ -36,6 +36,9 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px}
 body{font-family:var(--fi);background:var(--off-white);color:var(--ink);line-height:1.6;overflow-x:hidden}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:2px;border-radius:2px}
+.skip-link{position:absolute;left:8px;top:-48px;z-index:300;background:var(--navy);color:#fff;padding:.65rem 1.1rem;font-size:.8rem;font-weight:600;text-decoration:none;border-radius:6px;transition:top .2s ease}
+.skip-link:focus{top:8px}
 ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:var(--blue-lt);border-radius:3px}
 .container{max-width:1160px;margin:0 auto;padding:0 2.5rem}
 #nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:.3s var(--ease)}
@@ -196,6 +199,7 @@ footer{background:#021d32;padding:3rem 0 2rem;position:relative;overflow:hidden}
 </style>
 </head>
 <body>
+<a href="#top" class="skip-link">Skip to content</a>
 <div class="page-veil" id="page-veil"></div>
 <div class="cur-dot" id="cur-dot"></div>
 <div class="cur-ring" id="cur-ring"></div>
@@ -207,13 +211,14 @@ footer{background:#021d32;padding:3rem 0 2rem;position:relative;overflow:hidden}
     <ul class="nav-links">
       <li><a href="about.html">About</a></li>
       <li><a href="index.html#work" class="active">Work</a></li>
+      <li><a href="Tre-Zamora-Resume.pdf" target="_blank" rel="noopener">Resume</a></li>
       <li><a class="nav-cta js-mail" data-u="tzamora" data-d="hawaii.edu" href="#">Contact</a></li>
     </ul>
     <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
-<div class="cs-hero">
+<div id="top" class="cs-hero">
   <div class="container">
     <p class="cs-eyebrow">Case Study 03</p>
     <h1 class="cs-title">Wauke Webapp</h1>
@@ -283,7 +288,7 @@ footer{background:#021d32;padding:3rem 0 2rem;position:relative;overflow:hidden}
         <circle cx="600" cy="330" r="5" fill="#3f7256"/><text x="613" y="334" font-family="'Inter',sans-serif" font-size="11" fill="#3f6b4f">existing</text>
         <circle cx="690" cy="330" r="6" fill="none" stroke="#c08a3e" stroke-width="2" stroke-dasharray="3 3"/><text x="703" y="334" font-family="'Inter',sans-serif" font-size="11" fill="#9a6a2a">propagation potential</text>
       </svg>
-      <figcaption><b>Proposition over documentation</b> &mdash; the product thesis. The map does not neutrally record where wauke grows; it makes the spatial case that the conditions for its return already exist.</figcaption>
+      <figcaption><b>Proposition over documentation.</b> The product thesis: the map does not neutrally record where wauke grows; it makes the spatial case that the conditions for its return already exist.</figcaption>
     </figure>
 
     <div class="cs-section reveal">
@@ -356,7 +361,7 @@ footer{background:#021d32;padding:3rem 0 2rem;position:relative;overflow:hidden}
           <rect x="800" y="452" width="118" height="30" rx="15" fill="rgba(255,255,255,.16)" stroke="#ffd45c"/><text x="859" y="471" text-anchor="middle" font-size="11" fill="#fbf7ee">Windward valleys</text>
         </g>
       </svg>
-      <figcaption><b>Ecological conditions, read as layers</b> &mdash; soil, water, sunlight, and existing growth are weighted and overlaid to model where expanded wauke cultivation is spatially viable. <b>Hoʻoulu</b>: to grow, to propagate.</figcaption>
+      <figcaption><b>Ecological conditions, read as layers.</b> Soil, water, sunlight, and existing growth are weighted and overlaid to model where expanded wauke cultivation is spatially viable. <b>Hoʻoulu</b>: to grow, to propagate.</figcaption>
     </figure>
 
     <div class="cs-section reveal">
@@ -509,5 +514,7 @@ document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
   });
 })();
 </script>
+<!-- Privacy-friendly analytics (GoatCounter). To activate: create a free site at https://www.goatcounter.com, then uncomment the next line and replace YOURCODE with your site code. -->
+<!-- <script data-goatcounter="https://YOURCODE.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script> -->
 </body>
 </html>

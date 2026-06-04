@@ -36,6 +36,9 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px}
 body{font-family:var(--fi);background:var(--off-white);color:var(--ink);line-height:1.6;overflow-x:hidden}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:2px;border-radius:2px}
+.skip-link{position:absolute;left:8px;top:-48px;z-index:300;background:var(--navy);color:#fff;padding:.65rem 1.1rem;font-size:.8rem;font-weight:600;text-decoration:none;border-radius:6px;transition:top .2s ease}
+.skip-link:focus{top:8px}
 ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:var(--blue-lt);border-radius:3px}
 .container{max-width:1160px;margin:0 auto;padding:0 2.5rem}
 #nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:.3s var(--ease)}
@@ -196,6 +199,7 @@ footer{background:#021d32;padding:3rem 0 2rem;position:relative;overflow:hidden}
 </style>
 </head>
 <body>
+<a href="#top" class="skip-link">Skip to content</a>
 <div class="page-veil" id="page-veil"></div>
 <div class="cur-dot" id="cur-dot"></div>
 <div class="cur-ring" id="cur-ring"></div>
@@ -207,13 +211,14 @@ footer{background:#021d32;padding:3rem 0 2rem;position:relative;overflow:hidden}
     <ul class="nav-links">
       <li><a href="about.html">About</a></li>
       <li><a href="index.html#work" class="active">Work</a></li>
+      <li><a href="Tre-Zamora-Resume.pdf" target="_blank" rel="noopener">Resume</a></li>
       <li><a class="nav-cta js-mail" data-u="tzamora" data-d="hawaii.edu" href="#">Contact</a></li>
     </ul>
     <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
-<div class="cs-hero">
+<div id="top" class="cs-hero">
   <div class="container">
     <p class="cs-eyebrow">Case Study 01</p>
     <h1 class="cs-title">Makaliʻi Metrics</h1>
@@ -318,7 +323,7 @@ footer{background:#021d32;padding:3rem 0 2rem;position:relative;overflow:hidden}
         <text x="576" y="356" font-family="'Inter',sans-serif" font-size="11.5" fill="#cfe3cf">where it comes from.</text>
         <text x="826" y="332" font-family="'Inter',sans-serif" font-size="12" font-weight="600" fill="#3f7256">relevance</text>
       </svg>
-      <figcaption><b>The product problem wasn't speed &mdash; it was relevance.</b> The same soil data becomes generic extraction or grounded intelligence depending on the interpretation layer. <b>ʻĀina-first</b> is the strategy, not a branding skin.</figcaption>
+      <figcaption><b>The product problem wasn't speed. It was relevance.</b> The same soil data becomes generic extraction or grounded intelligence depending on the interpretation layer. <b>ʻĀina-first</b> is the strategy, not a branding skin.</figcaption>
     </figure>
 
     <div class="cs-section reveal">
@@ -402,7 +407,7 @@ footer{background:#021d32;padding:3rem 0 2rem;position:relative;overflow:hidden}
           <text x="700" y="444" font-size="10.5" fill="#6b808f">repeat uploads</text>
         </g>
       </svg>
-      <figcaption><b>Scope ordered by impact, gated by phase.</b> User-testing findings become a severity-weighted backlog, delivered across a 90-day roadmap with explicit gates &mdash; so the team has defined checkpoints before moving from discovery into execution.</figcaption>
+      <figcaption><b>Scope ordered by impact, gated by phase.</b> User-testing findings become a severity-weighted backlog, delivered across a 90-day roadmap with explicit gates, so the team has defined checkpoints before moving from discovery into execution.</figcaption>
     </figure>
 
     <div class="cs-section reveal">
@@ -638,5 +643,7 @@ document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
   });
 })();
 </script>
+<!-- Privacy-friendly analytics (GoatCounter). To activate: create a free site at https://www.goatcounter.com, then uncomment the next line and replace YOURCODE with your site code. -->
+<!-- <script data-goatcounter="https://YOURCODE.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script> -->
 </body>
 </html>

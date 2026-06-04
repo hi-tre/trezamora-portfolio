@@ -37,6 +37,9 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px}
 body{font-family:var(--fi);background:var(--off-white);color:var(--ink);line-height:1.6;overflow-x:hidden}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:2px;border-radius:2px}
+.skip-link{position:absolute;left:8px;top:-48px;z-index:300;background:var(--navy);color:#fff;padding:.65rem 1.1rem;font-size:.8rem;font-weight:600;text-decoration:none;border-radius:6px;transition:top .2s ease}
+.skip-link:focus{top:8px}
 ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:var(--blue-lt);border-radius:3px}
 .container{max-width:1160px;margin:0 auto;padding:0 2.5rem}
 
@@ -214,6 +217,7 @@ footer::after{content:'';position:absolute;border-radius:50%;pointer-events:none
 </style>
 </head>
 <body>
+<a href="#top" class="skip-link">Skip to content</a>
 
 <div class="page-veil" id="page-veil"></div>
 <div class="scroll-bar" id="scroll-bar"></div>
@@ -226,6 +230,7 @@ footer::after{content:'';position:absolute;border-radius:50%;pointer-events:none
     <ul class="nav-links">
       <li><a href="about.html" class="active">About</a></li>
       <li><a href="index.html#work">Work</a></li>
+      <li><a href="Tre-Zamora-Resume.pdf" target="_blank" rel="noopener">Resume</a></li>
       <li><a class="nav-cta js-mail" data-u="tzamora" data-d="hawaii.edu" href="#">Contact</a></li>
     </ul>
     <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -233,7 +238,7 @@ footer::after{content:'';position:absolute;border-radius:50%;pointer-events:none
 </nav>
 
 <!-- PAGE HERO -->
-<section class="page-hero">
+<section id="top" class="page-hero">
   <div class="container">
     <div class="reveal">
       <p class="sec-label">About</p>
@@ -539,5 +544,7 @@ document.querySelectorAll('.reveal,.reveal-r').forEach(el=>ro.observe(el));
   });
 })();
 </script>
+<!-- Privacy-friendly analytics (GoatCounter). To activate: create a free site at https://www.goatcounter.com, then uncomment the next line and replace YOURCODE with your site code. -->
+<!-- <script data-goatcounter="https://YOURCODE.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script> -->
 </body>
 </html>

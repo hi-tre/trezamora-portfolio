@@ -104,6 +104,11 @@ body{font-family:var(--fi);background:var(--off-white);color:var(--ink);line-hei
 .cs-img-ph::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-48deg,transparent 0,transparent 22px,rgba(255,255,255,.02) 22px,rgba(255,255,255,.02) 23px)}
 .cs-img-ph-lbl{font-size:.6rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);position:relative;z-index:1}
 .cs-img-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:2}
+/* CONCEPT DIAGRAM */
+.cs-diagram{margin:2.2rem 0 3rem;border:1px solid var(--rule);border-radius:14px;background:var(--white);overflow:hidden;box-shadow:0 1px 2px rgba(4,50,87,.04)}
+.cs-diagram svg{display:block;width:100%;height:auto}
+.cs-diagram figcaption{font-family:var(--fi);font-size:.74rem;line-height:1.55;letter-spacing:.01em;color:var(--muted);padding:.95rem 1.4rem;border-top:1px solid var(--rule);background:var(--surface)}
+.cs-diagram figcaption b{color:var(--ink-mid);font-weight:600}
 /* CS NAV */
 .cs-nav{background:var(--surface);padding:2.5rem 0;border-top:1px solid var(--rule)}
 .pn-row{display:flex;justify-content:space-between;align-items:center;gap:2rem}
@@ -229,7 +234,51 @@ footer{background:#021d32;padding:3rem 0 2rem;position:relative;overflow:hidden}
       <p>The product was conceived, defined, designed, and demoed in three days at Purple Maiʻa Foundation's Purple Prize hackathon. It placed first. This case study is about the product decisions that won. Specifically: the architectural decision to treat community engagement not as a feature layer but as the product's core structure.</p>
     </div>
 
-    <div class="cs-img-ph"><span class="cs-img-ph-lbl">Product Demo Screens · Mobile Application</span></div>
+    <figure class="cs-diagram reveal">
+      <svg viewBox="0 0 1000 410" role="img" aria-labelledby="cr1t cr1d">
+        <title id="cr1t">The infrastructure gap between divers and reef scientists</title>
+        <desc id="cr1d">Recreational divers capture reef footage that is never analyzed; reef scientists need data but lack coverage. Coral Collective AI is the missing pipeline that connects them.</desc>
+        <defs>
+          <marker id="aTeal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1d8a9c"/></marker>
+        </defs>
+        <!-- left bank: divers -->
+        <rect x="48" y="92" width="206" height="240" rx="12" fill="#e7f3f5" stroke="#a9d7df"/>
+        <text x="68" y="124" font-family="'Syne',sans-serif" font-size="15" font-weight="700" fill="#0a4a6e">Recreational divers</text>
+        <text x="68" y="144" font-family="'Inter',sans-serif" font-size="11" fill="#3a7d8a">Hundreds in the water weekly</text>
+        <circle cx="78" cy="180" r="7" fill="#e07a5f"/><circle cx="108" cy="180" r="7" fill="#e07a5f"/><circle cx="138" cy="180" r="7" fill="#e07a5f"/><circle cx="168" cy="180" r="7" fill="#e07a5f"/><circle cx="198" cy="180" r="7" fill="#e07a5f"/>
+        <circle cx="78" cy="210" r="7" fill="#e07a5f"/><circle cx="108" cy="210" r="7" fill="#e07a5f"/><circle cx="138" cy="210" r="7" fill="#e07a5f"/><circle cx="168" cy="210" r="7" fill="#e07a5f"/><circle cx="198" cy="210" r="7" fill="#e07a5f"/>
+        <circle cx="78" cy="240" r="7" fill="#e07a5f"/><circle cx="108" cy="240" r="7" fill="#e07a5f"/><circle cx="138" cy="240" r="7" fill="#e07a5f"/>
+        <text x="68" y="296" font-family="'Inter',sans-serif" font-size="10.5" fill="#6b808f">Footage never systematically</text>
+        <text x="68" y="312" font-family="'Inter',sans-serif" font-size="10.5" fill="#6b808f">analyzed &#183; lost to social media</text>
+        <!-- right bank: scientists -->
+        <rect x="746" y="92" width="206" height="240" rx="12" fill="#e9eef4" stroke="#b6c6da"/>
+        <text x="766" y="124" font-family="'Syne',sans-serif" font-size="15" font-weight="700" fill="#043257">Reef scientists &amp; orgs</text>
+        <text x="766" y="144" font-family="'Inter',sans-serif" font-size="11" fill="#3a5a78">Need the data, lack coverage</text>
+        <circle cx="800" cy="205" r="12" fill="#0a4a6e"/><circle cx="848" cy="205" r="12" fill="#0a4a6e"/><circle cx="896" cy="205" r="12" fill="#0a4a6e"/>
+        <text x="766" y="296" font-family="'Inter',sans-serif" font-size="10.5" fill="#6b808f">Surveys expensive · infrequent</text>
+        <text x="766" y="312" font-family="'Inter',sans-serif" font-size="10.5" fill="#6b808f">partial reef coverage</text>
+        <!-- bridge -->
+        <text x="500" y="64" text-anchor="middle" font-family="'Inter',sans-serif" font-size="11" font-weight="600" letter-spacing="2.5" fill="#1d8a9c">THE MISSING INFRASTRUCTURE</text>
+        <text x="500" y="90" text-anchor="middle" font-family="'Syne',sans-serif" font-size="17" font-weight="800" fill="#0a4a6e">Coral Collective AI</text>
+        <rect x="262" y="110" width="476" height="150" rx="14" fill="#f2fafb" stroke="#dceef1"/>
+        <rect x="274" y="172" width="132" height="92" rx="9" fill="#d9eef2" stroke="#9fd2dc"/>
+        <text x="340" y="212" text-anchor="middle" font-family="'Syne',sans-serif" font-size="13" font-weight="700" fill="#0a4a6e">Bulk photo</text>
+        <text x="340" y="230" text-anchor="middle" font-family="'Syne',sans-serif" font-size="13" font-weight="700" fill="#0a4a6e">upload</text>
+        <rect x="430" y="172" width="152" height="92" rx="9" fill="#1d8a9c" stroke="#16707f"/>
+        <text x="506" y="206" text-anchor="middle" font-family="'Syne',sans-serif" font-size="13.5" font-weight="800" fill="#ffffff">AI / ML pipeline</text>
+        <text x="506" y="226" text-anchor="middle" font-family="'Inter',sans-serif" font-size="10.5" fill="#d6f1f5">species ID &#183; reef health</text>
+        <text x="506" y="242" text-anchor="middle" font-family="'Inter',sans-serif" font-size="10.5" fill="#d6f1f5">made legible to divers</text>
+        <rect x="606" y="172" width="120" height="92" rx="9" fill="#d9eef2" stroke="#9fd2dc"/>
+        <text x="666" y="212" text-anchor="middle" font-family="'Syne',sans-serif" font-size="13" font-weight="700" fill="#0a4a6e">Structured</text>
+        <text x="666" y="230" text-anchor="middle" font-family="'Syne',sans-serif" font-size="13" font-weight="700" fill="#0a4a6e">reef data</text>
+        <line x1="256" y1="218" x2="272" y2="218" stroke="#1d8a9c" stroke-width="2.5" marker-end="url(#aTeal)"/>
+        <line x1="408" y1="218" x2="428" y2="218" stroke="#1d8a9c" stroke-width="2.5" marker-end="url(#aTeal)"/>
+        <line x1="584" y1="218" x2="604" y2="218" stroke="#1d8a9c" stroke-width="2.5" marker-end="url(#aTeal)"/>
+        <line x1="728" y1="218" x2="744" y2="218" stroke="#1d8a9c" stroke-width="2.5" marker-end="url(#aTeal)"/>
+        <text x="500" y="300" text-anchor="middle" font-family="'Inter',sans-serif" font-size="12.5" font-style="italic" fill="#6b808f">The gap isn&#8217;t data. It&#8217;s infrastructure.</text>
+      </svg>
+      <figcaption><b>The gap isn&#8217;t data &mdash; it&#8217;s infrastructure.</b> Coral Collective AI is the pipeline that connects what recreational divers already see to what reef scientists need: bulk upload, AI species ID and reef-health scoring, then structured data routed to researchers.</figcaption>
+    </figure>
 
     <div class="cs-section reveal">
       <span class="cs-section-label">The Problem</span>
@@ -250,7 +299,60 @@ footer{background:#021d32;padding:3rem 0 2rem;position:relative;overflow:hidden}
       </ul>
     </div>
 
-    <div class="cs-img-ph"><span class="cs-img-ph-lbl">AI Pipeline Architecture · Community Engagement Layer</span></div>
+    <figure class="cs-diagram reveal">
+      <svg viewBox="0 0 1000 470" role="img" aria-labelledby="cr2t cr2d">
+        <title id="cr2t">Community engagement as product architecture</title>
+        <desc id="cr2d">A self-sustaining loop: divers contribute photos, the AI pipeline analyzes them, the community platform returns recognition and connection, which motivates more contribution. The pipeline also feeds professional researchers via Salesforce and shares resources with adjacent projects.</desc>
+        <defs>
+          <marker id="aTeal2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1d8a9c"/></marker>
+          <marker id="aNavy4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0a4a6e"/></marker>
+        </defs>
+        <text x="40" y="30" font-family="'Inter',sans-serif" font-size="11" font-weight="600" letter-spacing="2.5" fill="#1d8a9c">THE WINNING ARCHITECTURE &#183; A SELF-SUSTAINING LOOP</text>
+        <!-- loop arrows (clockwise) -->
+        <path d="M452,76 Q566,96 566,196" fill="none" stroke="#1d8a9c" stroke-width="2.5" marker-end="url(#aTeal2)"/>
+        <path d="M566,272 Q566,372 458,392" fill="none" stroke="#1d8a9c" stroke-width="2.5" marker-end="url(#aTeal2)"/>
+        <path d="M202,392 Q96,372 96,272" fill="none" stroke="#1d8a9c" stroke-width="2.5" marker-end="url(#aTeal2)"/>
+        <path d="M96,196 Q96,96 202,76" fill="none" stroke="#1d8a9c" stroke-width="2.5" marker-end="url(#aTeal2)"/>
+        <!-- center -->
+        <circle cx="331" cy="234" r="82" fill="#0a4a6e"/>
+        <text x="331" y="224" text-anchor="middle" font-family="'Syne',sans-serif" font-size="14.5" font-weight="800" fill="#ffffff">Community =</text>
+        <text x="331" y="244" text-anchor="middle" font-family="'Syne',sans-serif" font-size="14.5" font-weight="800" fill="#ffffff">architecture</text>
+        <text x="331" y="264" text-anchor="middle" font-family="'Inter',sans-serif" font-size="10" fill="#9fd2dc">not a feature</text>
+        <!-- TOP node -->
+        <rect x="201" y="36" width="260" height="58" rx="10" fill="#d9eef2" stroke="#9fd2dc"/>
+        <circle cx="223" cy="65" r="12" fill="#0a4a6e"/><text x="223" y="69" text-anchor="middle" font-family="'Syne',sans-serif" font-size="12" font-weight="800" fill="#fff">1</text>
+        <text x="244" y="61" font-family="'Syne',sans-serif" font-size="13.5" font-weight="700" fill="#0a4a6e">Divers contribute photos</text>
+        <text x="244" y="79" font-family="'Inter',sans-serif" font-size="10.5" fill="#3a7d8a">bulk reef footage</text>
+        <!-- RIGHT node -->
+        <rect x="486" y="198" width="200" height="72" rx="10" fill="#1d8a9c" stroke="#16707f"/>
+        <circle cx="508" cy="222" r="12" fill="#063b54"/><text x="508" y="226" text-anchor="middle" font-family="'Syne',sans-serif" font-size="12" font-weight="800" fill="#fff">2</text>
+        <text x="528" y="222" font-family="'Syne',sans-serif" font-size="13" font-weight="700" fill="#ffffff">AI pipeline</text>
+        <text x="500" y="246" font-family="'Inter',sans-serif" font-size="10.5" fill="#d6f1f5">species ID + reef health</text>
+        <text x="500" y="261" font-family="'Inter',sans-serif" font-size="10.5" fill="#d6f1f5">scoring</text>
+        <!-- BOTTOM node (emphasis) -->
+        <rect x="201" y="376" width="260" height="60" rx="10" fill="#f6ddd4" stroke="#e8a48f"/>
+        <circle cx="223" cy="406" r="12" fill="#c25034"/><text x="223" y="410" text-anchor="middle" font-family="'Syne',sans-serif" font-size="12" font-weight="800" fill="#fff">3</text>
+        <text x="244" y="402" font-family="'Syne',sans-serif" font-size="13.5" font-weight="700" fill="#b1492f">Community platform</text>
+        <text x="244" y="420" font-family="'Inter',sans-serif" font-size="10.5" fill="#9a5a47">recognition + connection to researchers</text>
+        <!-- LEFT node -->
+        <rect x="14" y="198" width="182" height="72" rx="10" fill="#d9eef2" stroke="#9fd2dc"/>
+        <circle cx="36" cy="222" r="12" fill="#0a4a6e"/><text x="36" y="226" text-anchor="middle" font-family="'Syne',sans-serif" font-size="12" font-weight="800" fill="#fff">4</text>
+        <text x="56" y="222" font-family="'Syne',sans-serif" font-size="12.5" font-weight="700" fill="#0a4a6e">Purpose + standing</text>
+        <text x="32" y="246" font-family="'Inter',sans-serif" font-size="10.5" fill="#3a7d8a">a reason to contribute,</text>
+        <text x="32" y="261" font-family="'Inter',sans-serif" font-size="10.5" fill="#3a7d8a">motivates more uploads</text>
+        <!-- side outputs -->
+        <line x1="686" y1="234" x2="708" y2="234" stroke="#0a4a6e" stroke-width="2"/>
+        <path d="M708,234 L708,184" fill="none" stroke="#0a4a6e" stroke-width="2" marker-end="url(#aNavy4)"/>
+        <path d="M708,234 L708,310" fill="none" stroke="#0a4a6e" stroke-width="2" marker-end="url(#aNavy4)"/>
+        <rect x="724" y="150" width="256" height="68" rx="10" fill="#e9eef4" stroke="#b6c6da"/>
+        <text x="742" y="182" font-family="'Syne',sans-serif" font-size="13" font-weight="700" fill="#043257">Reef scientists</text>
+        <text x="742" y="201" font-family="'Inter',sans-serif" font-size="10.5" fill="#3a5a78">Salesforce &#183; meet them where they work</text>
+        <rect x="724" y="312" width="256" height="68" rx="10" fill="#e7f3f5" stroke="#a9d7df"/>
+        <text x="742" y="344" font-family="'Syne',sans-serif" font-size="13" font-weight="700" fill="#0a4a6e">Adjacent projects</text>
+        <text x="742" y="363" font-family="'Inter',sans-serif" font-size="10.5" fill="#3a7d8a">circular design &#183; shared data network</text>
+      </svg>
+      <figcaption><b>Community engagement built as structure, not marketing.</b> The AI pipeline is only as good as the community feeding it &mdash; so the loop that returns recognition to divers is the product architecture. That self-sustaining data model is the decision that won Purple Prize 2024.</figcaption>
+    </figure>
 
     <div class="cs-section reveal">
       <span class="cs-section-label">Key Decisions</span>

@@ -104,6 +104,11 @@ body{font-family:var(--fi);background:var(--off-white);color:var(--ink);line-hei
 .cs-img-ph::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-48deg,transparent 0,transparent 22px,rgba(255,255,255,.02) 22px,rgba(255,255,255,.02) 23px)}
 .cs-img-ph-lbl{font-size:.6rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);position:relative;z-index:1}
 .cs-img-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:2}
+/* CONCEPT DIAGRAM */
+.cs-diagram{margin:2.2rem 0 3rem;border:1px solid var(--rule);border-radius:14px;background:var(--white);overflow:hidden;box-shadow:0 1px 2px rgba(4,50,87,.04)}
+.cs-diagram svg{display:block;width:100%;height:auto}
+.cs-diagram figcaption{font-family:var(--fi);font-size:.74rem;line-height:1.55;letter-spacing:.01em;color:var(--muted);padding:.95rem 1.4rem;border-top:1px solid var(--rule);background:var(--surface)}
+.cs-diagram figcaption b{color:var(--ink-mid);font-weight:600}
 /* CS NAV */
 .cs-nav{background:var(--surface);padding:2.5rem 0;border-top:1px solid var(--rule)}
 .pn-row{display:flex;justify-content:space-between;align-items:center;gap:2rem}
@@ -256,7 +261,48 @@ footer{background:#021d32;padding:3rem 0 2rem;position:relative;overflow:hidden}
       </div>
     </div>
 
-    <div class="cs-img-ph"><span class="cs-img-ph-lbl">Product Screenshot, Dashboard View</span></div>
+    <figure class="cs-diagram reveal">
+      <svg viewBox="0 0 1000 430" role="img" aria-labelledby="mk1t mk1d">
+        <title id="mk1t">Generic extraction versus ʻāina-first interpretation</title>
+        <desc id="mk1d">The same Hawaiian soil sample yields a generic, context-blind recommendation from a mainland lab, but a relevant land decision when run through an ʻāina-first interpretation layer.</desc>
+        <defs>
+          <marker id="aGrey" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#9aa6ad"/></marker>
+          <marker id="aGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#3f7256"/></marker>
+          <marker id="aNavy2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#043257"/></marker>
+        </defs>
+        <!-- soil sample source -->
+        <rect x="48" y="178" width="152" height="82" rx="10" fill="#f4e8d1" stroke="#dcbd84"/>
+        <text x="124" y="210" text-anchor="middle" font-family="'Syne',sans-serif" font-size="15" font-weight="700" fill="#8a5a24">Soil sample</text>
+        <text x="124" y="232" text-anchor="middle" font-family="'Inter',sans-serif" font-size="11" fill="#9a6a2a">Hawaiian volcanic</text>
+        <!-- branch arrows -->
+        <line x1="202" y1="206" x2="262" y2="128" stroke="#043257" stroke-width="2.5" marker-end="url(#aNavy2)"/>
+        <line x1="202" y1="234" x2="262" y2="312" stroke="#043257" stroke-width="2.5" marker-end="url(#aNavy2)"/>
+        <!-- UPPER LANE: extraction -->
+        <text x="272" y="74" font-family="'Inter',sans-serif" font-size="11" font-weight="600" letter-spacing="2.5" fill="#9aa6ad">EXTRACTION LOGIC &#183; BUILT ELSEWHERE</text>
+        <rect x="272" y="86" width="222" height="70" rx="9" fill="#eef1f2" stroke="#d3dae0"/>
+        <text x="286" y="116" font-family="'Syne',sans-serif" font-size="14" font-weight="700" fill="#5c6b75">Mainland soil lab</text>
+        <text x="286" y="138" font-family="'Inter',sans-serif" font-size="11" fill="#8a98a1">Generic model &#183; weeks turnaround</text>
+        <line x1="498" y1="121" x2="556" y2="121" stroke="#9aa6ad" stroke-width="2.5" marker-end="url(#aGrey)"/>
+        <rect x="560" y="86" width="232" height="70" rx="9" fill="#eef1f2" stroke="#d3dae0"/>
+        <text x="574" y="116" font-family="'Syne',sans-serif" font-size="14" font-weight="700" fill="#5c6b75">Generic recommendation</text>
+        <text x="574" y="138" font-family="'Inter',sans-serif" font-size="11" fill="#8a98a1">Context-blind &#183; one size fits all</text>
+        <text x="812" y="128" font-family="'Inter',sans-serif" font-size="12" fill="#b4a0a0">misses relevance</text>
+        <!-- LOWER LANE: aina-first -->
+        <text x="272" y="262" font-family="'Inter',sans-serif" font-size="11" font-weight="600" letter-spacing="2.5" fill="#3f7256">&#699;&#256;INA-FIRST INTERPRETATION</text>
+        <rect x="272" y="276" width="252" height="98" rx="10" fill="#e6f0e6" stroke="#6fa382"/>
+        <text x="286" y="304" font-family="'Syne',sans-serif" font-size="15" font-weight="700" fill="#234b37">Interpretation layer</text>
+        <text x="286" y="326" font-family="'Inter',sans-serif" font-size="11" fill="#3f6b4f">Volcanic soil chemistry</text>
+        <text x="286" y="344" font-family="'Inter',sans-serif" font-size="11" fill="#3f6b4f">Microclimate &#38; regenerative practice</text>
+        <text x="286" y="362" font-family="'Inter',sans-serif" font-size="11" fill="#3f6b4f">&#699;&#332;lelo Hawai&#699;i &#38; stewardship framing</text>
+        <line x1="528" y1="325" x2="556" y2="325" stroke="#3f7256" stroke-width="2.5" marker-end="url(#aGreen)"/>
+        <rect x="560" y="276" width="242" height="98" rx="10" fill="#2c5440"/>
+        <text x="576" y="312" font-family="'Syne',sans-serif" font-size="15" font-weight="700" fill="#fbf7ee">Relevant land decision</text>
+        <text x="576" y="338" font-family="'Inter',sans-serif" font-size="11.5" fill="#cfe3cf">Soil intelligence that knows</text>
+        <text x="576" y="356" font-family="'Inter',sans-serif" font-size="11.5" fill="#cfe3cf">where it comes from.</text>
+        <text x="826" y="332" font-family="'Inter',sans-serif" font-size="12" font-weight="600" fill="#3f7256">relevance</text>
+      </svg>
+      <figcaption><b>The product problem wasn't speed &mdash; it was relevance.</b> The same soil data becomes generic extraction or grounded intelligence depending on the interpretation layer. <b>ʻĀina-first</b> is the strategy, not a branding skin.</figcaption>
+    </figure>
 
     <div class="cs-section reveal">
       <span class="cs-section-label">The Problem</span>
@@ -277,7 +323,70 @@ footer{background:#021d32;padding:3rem 0 2rem;position:relative;overflow:hidden}
       </ul>
     </div>
 
-    <div class="cs-img-ph"><span class="cs-img-ph-lbl">Roadmap Framework · Backlog Structure</span></div>
+    <figure class="cs-diagram reveal">
+      <svg viewBox="0 0 1000 500" role="img" aria-labelledby="mk2t mk2d">
+        <title id="mk2t">From findings to a severity-weighted backlog to a gated roadmap</title>
+        <desc id="mk2d">Heuristic findings and user-testing themes feed a backlog ordered by user impact, which is delivered across a three-phase ninety-day roadmap with explicit gate criteria.</desc>
+        <defs>
+          <marker id="aNavy3" viewBox="0 0 10 10" refX="5" refY="8" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,0 L5,9 z" fill="#043257"/></marker>
+        </defs>
+        <g font-family="'Inter',sans-serif">
+          <!-- ROW 1: FINDINGS -->
+          <text x="70" y="32" font-size="11" font-weight="600" letter-spacing="2.5" fill="#7c8b94">RESEARCH FINDINGS</text>
+          <rect x="70" y="44" width="402" height="104" rx="9" fill="#f4f7fa" stroke="#dde5eb"/>
+          <text x="88" y="72" font-family="'Syne',sans-serif" font-size="14" font-weight="700" fill="#043257">Heuristic evaluation</text>
+          <circle cx="96" cy="104" r="6" fill="#c0563e"/><circle cx="114" cy="104" r="6" fill="#c0563e"/>
+          <text x="128" y="108" font-size="11" fill="#6b808f">2 High</text>
+          <circle cx="200" cy="104" r="5" fill="#e0a93f"/><circle cx="216" cy="104" r="5" fill="#e0a93f"/><circle cx="232" cy="104" r="5" fill="#e0a93f"/><circle cx="248" cy="104" r="5" fill="#e0a93f"/><circle cx="264" cy="104" r="5" fill="#e0a93f"/>
+          <text x="278" y="108" font-size="11" fill="#6b808f">5 Medium</text>
+          <circle cx="372" cy="104" r="6" fill="none" stroke="#3f7256" stroke-width="2"/>
+          <text x="384" y="108" font-size="11" fill="#3f6b4f">1 strength kept</text>
+          <rect x="490" y="44" width="440" height="104" rx="9" fill="#f4f7fa" stroke="#dde5eb"/>
+          <text x="508" y="72" font-family="'Syne',sans-serif" font-size="14" font-weight="700" fill="#043257">K&#333;kua user testing &#183; real practitioners</text>
+          <rect x="508" y="88" width="184" height="26" rx="13" fill="#eaf1f7" stroke="#cfe0ee"/><text x="600" y="105" text-anchor="middle" font-size="11" fill="#28608a">Language accessibility</text>
+          <rect x="700" y="88" width="158" height="26" rx="13" fill="#eaf1f7" stroke="#cfe0ee"/><text x="779" y="105" text-anchor="middle" font-size="11" fill="#28608a">&#699;&#256;ina-first framing</text>
+          <rect x="508" y="120" width="196" height="26" rx="13" fill="#eaf1f7" stroke="#cfe0ee"/><text x="606" y="137" text-anchor="middle" font-size="11" fill="#28608a">Community sharing model</text>
+          <line x1="500" y1="154" x2="500" y2="184" stroke="#043257" stroke-width="2.5" marker-end="url(#aNavy3)"/>
+          <!-- ROW 2: BACKLOG -->
+          <text x="70" y="180" font-size="11" font-weight="600" letter-spacing="2.5" fill="#7c8b94">SEVERITY-WEIGHTED BACKLOG</text>
+          <rect x="70" y="192" width="860" height="106" rx="10" fill="#ffffff" stroke="#dde5eb"/>
+          <text x="90" y="222" font-family="'Syne',sans-serif" font-size="15" font-weight="700" fill="#043257">Ordered by user impact</text>
+          <text x="90" y="244" font-size="11" fill="#6b808f">not development convenience</text>
+          <text x="90" y="278" font-family="'Syne',sans-serif" font-size="20" font-weight="800" fill="#28608a">9 / 24</text>
+          <text x="186" y="278" font-size="11" fill="#6b808f">shipped &#183; 37.5%</text>
+          <text x="320" y="216" font-size="10" letter-spacing="1.5" fill="#9aa6ad">HIGH IMPACT FIRST &#8594;</text>
+          <!-- 24 backlog cells, severity-colored, solid=shipped -->
+          <rect x="320" y="226" width="18" height="34" rx="3" fill="#c0563e"/><rect x="344" y="226" width="18" height="34" rx="3" fill="#c0563e"/><rect x="368" y="226" width="18" height="34" rx="3" fill="#c0563e"/><rect x="392" y="226" width="18" height="34" rx="3" fill="#c0563e"/><rect x="416" y="226" width="18" height="34" rx="3" fill="#c0563e"/><rect x="440" y="226" width="18" height="34" rx="3" fill="#fff" stroke="#c0563e"/><rect x="464" y="226" width="18" height="34" rx="3" fill="#fff" stroke="#c0563e"/><rect x="488" y="226" width="18" height="34" rx="3" fill="#fff" stroke="#c0563e"/>
+          <rect x="512" y="226" width="18" height="34" rx="3" fill="#28608a"/><rect x="536" y="226" width="18" height="34" rx="3" fill="#28608a"/><rect x="560" y="226" width="18" height="34" rx="3" fill="#28608a"/><rect x="584" y="226" width="18" height="34" rx="3" fill="#28608a"/><rect x="608" y="226" width="18" height="34" rx="3" fill="#fff" stroke="#aac3d6"/><rect x="632" y="226" width="18" height="34" rx="3" fill="#fff" stroke="#aac3d6"/><rect x="656" y="226" width="18" height="34" rx="3" fill="#fff" stroke="#aac3d6"/><rect x="680" y="226" width="18" height="34" rx="3" fill="#fff" stroke="#aac3d6"/><rect x="704" y="226" width="18" height="34" rx="3" fill="#fff" stroke="#aac3d6"/><rect x="728" y="226" width="18" height="34" rx="3" fill="#fff" stroke="#aac3d6"/><rect x="752" y="226" width="18" height="34" rx="3" fill="#fff" stroke="#aac3d6"/><rect x="776" y="226" width="18" height="34" rx="3" fill="#fff" stroke="#aac3d6"/><rect x="800" y="226" width="18" height="34" rx="3" fill="#fff" stroke="#aac3d6"/><rect x="824" y="226" width="18" height="34" rx="3" fill="#fff" stroke="#aac3d6"/><rect x="848" y="226" width="18" height="34" rx="3" fill="#fff" stroke="#aac3d6"/><rect x="872" y="226" width="18" height="34" rx="3" fill="#fff" stroke="#aac3d6"/>
+          <text x="401" y="282" text-anchor="middle" font-size="10" fill="#c0563e">Urgent</text>
+          <text x="700" y="282" text-anchor="middle" font-size="10" fill="#28608a">Normal</text>
+          <text x="828" y="244" font-size="10" fill="#9aa6ad">&#9632; shipped</text>
+          <line x1="500" y1="304" x2="500" y2="334" stroke="#043257" stroke-width="2.5" marker-end="url(#aNavy3)"/>
+          <!-- ROW 3: ROADMAP -->
+          <text x="70" y="330" font-size="11" font-weight="600" letter-spacing="2.5" fill="#7c8b94">90-DAY ROADMAP &#183; GATE CRITERIA</text>
+          <rect x="70" y="342" width="248" height="112" rx="10" fill="#eef4f9" stroke="#cfe0ee"/>
+          <text x="88" y="380" font-family="'Syne',sans-serif" font-size="23" font-weight="800" fill="#28608a">1&#8211;30</text>
+          <text x="88" y="406" font-family="'Syne',sans-serif" font-size="13" font-weight="700" fill="#043257">Context Absorption</text>
+          <text x="88" y="428" font-size="10.5" fill="#6b808f">Product spine ·</text>
+          <text x="88" y="444" font-size="10.5" fill="#6b808f">discovery complete</text>
+          <polygon points="347,384 362,399 347,414 332,399" fill="#ffd45c" stroke="#e6b800"/>
+          <text x="347" y="432" text-anchor="middle" font-size="9" letter-spacing="1" fill="#b89000">GATE</text>
+          <rect x="376" y="342" width="248" height="112" rx="10" fill="#fff7e3" stroke="#ecd9a0"/>
+          <text x="394" y="380" font-family="'Syne',sans-serif" font-size="23" font-weight="800" fill="#c89a2a">31&#8211;60</text>
+          <text x="394" y="406" font-family="'Syne',sans-serif" font-size="13" font-weight="700" fill="#043257">First Operational Win</text>
+          <text x="394" y="428" font-size="10.5" fill="#6b808f">Ship highest-severity</text>
+          <text x="394" y="444" font-size="10.5" fill="#6b808f">fixes · validate flow</text>
+          <polygon points="653,384 668,399 653,414 638,399" fill="#ffd45c" stroke="#e6b800"/>
+          <text x="653" y="432" text-anchor="middle" font-size="9" letter-spacing="1" fill="#b89000">GATE</text>
+          <rect x="682" y="342" width="248" height="112" rx="10" fill="#eef4f9" stroke="#cfe0ee"/>
+          <text x="700" y="380" font-family="'Syne',sans-serif" font-size="23" font-weight="800" fill="#28608a">61&#8211;90</text>
+          <text x="700" y="406" font-family="'Syne',sans-serif" font-size="13" font-weight="700" fill="#043257">Product Signal</text>
+          <text x="700" y="428" font-size="10.5" fill="#6b808f">Adoption: logins ·</text>
+          <text x="700" y="444" font-size="10.5" fill="#6b808f">repeat uploads</text>
+        </g>
+      </svg>
+      <figcaption><b>Scope ordered by impact, gated by phase.</b> User-testing findings become a severity-weighted backlog, delivered across a 90-day roadmap with explicit gates &mdash; so the team has defined checkpoints before moving from discovery into execution.</figcaption>
+    </figure>
 
     <div class="cs-section reveal">
       <span class="cs-section-label">Key Decisions</span>

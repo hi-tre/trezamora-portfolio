@@ -104,6 +104,11 @@ body{font-family:var(--fi);background:var(--off-white);color:var(--ink);line-hei
 .cs-img-ph::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-48deg,transparent 0,transparent 22px,rgba(255,255,255,.02) 22px,rgba(255,255,255,.02) 23px)}
 .cs-img-ph-lbl{font-size:.6rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);position:relative;z-index:1}
 .cs-img-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:2}
+/* CONCEPT DIAGRAM */
+.cs-diagram{margin:2.2rem 0 3rem;border:1px solid var(--rule);border-radius:14px;background:var(--white);overflow:hidden;box-shadow:0 1px 2px rgba(4,50,87,.04)}
+.cs-diagram svg{display:block;width:100%;height:auto}
+.cs-diagram figcaption{font-family:var(--fi);font-size:.74rem;line-height:1.55;letter-spacing:.01em;color:var(--muted);padding:.95rem 1.4rem;border-top:1px solid var(--rule);background:var(--surface)}
+.cs-diagram figcaption b{color:var(--ink-mid);font-weight:600}
 /* CS NAV */
 .cs-nav{background:var(--surface);padding:2.5rem 0;border-top:1px solid var(--rule)}
 .pn-row{display:flex;justify-content:space-between;align-items:center;gap:2rem}
@@ -229,7 +234,40 @@ footer{background:#021d32;padding:3rem 0 2rem;position:relative;overflow:hidden}
       <p>The product framing that shaped every design decision: this is not a data dashboard. It is a proposition. Most tools built for land and resource management ask what can be extracted from a place. Wauke Webapp inverts that logic entirely: it asks what can be grown back, and makes the spatial case that the conditions for that restoration already exist.</p>
     </div>
 
-    <div class="cs-img-ph"><span class="cs-img-ph-lbl">Primary Map View · Cultivation Sites Active · Ecological Data Layers On</span></div>
+    <figure class="cs-diagram reveal">
+      <svg viewBox="0 0 1000 410" role="img" aria-labelledby="d1t d1d">
+        <title id="d1t">Documentation versus proposition</title>
+        <desc id="d1d">Known wauke cultivation sites, recorded as documentation, are reframed as a spatial proposition: an argument for where the plant could return.</desc>
+        <defs>
+          <linearGradient id="propGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#fbf7ee"/><stop offset="1" stop-color="#e7f0e6"/>
+          </linearGradient>
+          <marker id="arrNavy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#043257"/>
+          </marker>
+        </defs>
+        <!-- LEFT: documentation -->
+        <rect x="50" y="112" width="338" height="206" rx="12" fill="#eef1f2" stroke="#dde5eb"/>
+        <text x="74" y="148" font-family="'Inter',sans-serif" font-size="12" font-weight="600" letter-spacing="3" fill="#6b808f">WHAT EXISTS</text>
+        <text x="74" y="180" font-family="'Syne',sans-serif" font-size="23" font-weight="800" fill="#2c3e4d">Documentation</text>
+        <text x="74" y="203" font-family="'Inter',sans-serif" font-size="12.5" fill="#6b808f">Known wauke sites, recorded as points.</text>
+        <circle cx="118" cy="262" r="6" fill="#3f7256"/><circle cx="166" cy="288" r="6" fill="#3f7256"/><circle cx="206" cy="258" r="6" fill="#3f7256"/><circle cx="250" cy="290" r="6" fill="#3f7256"/><circle cx="300" cy="268" r="6" fill="#3f7256"/>
+        <!-- ARROW -->
+        <line x1="402" y1="214" x2="548" y2="214" stroke="#043257" stroke-width="3" marker-end="url(#arrNavy)"/>
+        <text x="475" y="196" text-anchor="middle" font-family="'Inter',sans-serif" font-size="11" font-weight="600" letter-spacing="2.5" fill="#043257">THE DESIGN MOVE</text>
+        <text x="475" y="238" text-anchor="middle" font-family="'Inter',sans-serif" font-size="13" font-style="italic" fill="#6b808f">describe &#8594; argue</text>
+        <!-- RIGHT: proposition -->
+        <rect x="562" y="84" width="388" height="262" rx="12" fill="url(#propGrad)" stroke="#9cc0a6"/>
+        <text x="588" y="122" font-family="'Inter',sans-serif" font-size="12" font-weight="600" letter-spacing="3" fill="#2c5440">WHAT COULD</text>
+        <text x="588" y="156" font-family="'Syne',sans-serif" font-size="26" font-weight="800" fill="#234b37">Proposition</text>
+        <text x="588" y="180" font-family="'Inter',sans-serif" font-size="12.5" fill="#3f7256">A spatial argument for what can return.</text>
+        <circle cx="618" cy="244" r="6" fill="#3f7256"/><circle cx="668" cy="272" r="6" fill="#3f7256"/><circle cx="712" cy="242" r="6" fill="#3f7256"/><circle cx="760" cy="274" r="6" fill="#3f7256"/><circle cx="808" cy="250" r="6" fill="#3f7256"/>
+        <circle cx="642" cy="296" r="8" fill="none" stroke="#c08a3e" stroke-width="2" stroke-dasharray="3 3"/><circle cx="700" cy="300" r="8" fill="none" stroke="#c08a3e" stroke-width="2" stroke-dasharray="3 3"/><circle cx="758" cy="302" r="8" fill="none" stroke="#c08a3e" stroke-width="2" stroke-dasharray="3 3"/><circle cx="812" cy="298" r="8" fill="none" stroke="#c08a3e" stroke-width="2" stroke-dasharray="3 3"/><circle cx="868" cy="262" r="8" fill="none" stroke="#c08a3e" stroke-width="2" stroke-dasharray="3 3"/><circle cx="884" cy="300" r="8" fill="none" stroke="#c08a3e" stroke-width="2" stroke-dasharray="3 3"/>
+        <circle cx="600" cy="330" r="5" fill="#3f7256"/><text x="613" y="334" font-family="'Inter',sans-serif" font-size="11" fill="#3f6b4f">existing</text>
+        <circle cx="690" cy="330" r="6" fill="none" stroke="#c08a3e" stroke-width="2" stroke-dasharray="3 3"/><text x="703" y="334" font-family="'Inter',sans-serif" font-size="11" fill="#9a6a2a">propagation potential</text>
+      </svg>
+      <figcaption><b>Proposition over documentation</b> &mdash; the product thesis. The map does not neutrally record where wauke grows; it makes the spatial case that the conditions for its return already exist.</figcaption>
+    </figure>
 
     <div class="cs-section reveal">
       <span class="cs-section-label">The Problem</span>
@@ -250,7 +288,59 @@ footer{background:#021d32;padding:3rem 0 2rem;position:relative;overflow:hidden}
       </ul>
     </div>
 
-    <div class="cs-img-ph"><span class="cs-img-ph-lbl">Ecological Conditions Detail · Propagation Potential Layer</span></div>
+    <figure class="cs-diagram reveal">
+      <svg viewBox="0 0 1000 540" role="img" aria-labelledby="d2t d2d">
+        <title id="d2t">Ecological data layers overlaid into propagation potential</title>
+        <desc id="d2d">Soil, water, sunlight, and existing growth are read as separate ecological layers, then weighted and overlaid to model where expanded wauke cultivation is viable across Oahu.</desc>
+        <defs>
+          <linearGradient id="viaGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#cfd6d4"/><stop offset="0.5" stop-color="#5e8e6f"/><stop offset="1" stop-color="#234b37"/>
+          </linearGradient>
+          <marker id="arrDown" viewBox="0 0 10 10" refX="5" refY="8" markerWidth="9" markerHeight="9" orient="auto">
+            <path d="M0,0 L10,0 L5,9 z" fill="#2c5440"/>
+          </marker>
+        </defs>
+        <!-- LAYER BANDS -->
+        <!-- band 1: soil -->
+        <g font-family="'Inter',sans-serif">
+          <rect x="70" y="34" width="860" height="56" rx="9" fill="#f4e8d1" stroke="#dcbd84"/>
+          <text x="92" y="60" font-family="'Syne',sans-serif" font-size="16" font-weight="700" fill="#8a5a24">Lepo</text>
+          <text x="92" y="78" font-size="11" fill="#9a6a2a">Soil quality</text>
+          <line x1="250" y1="48" x2="250" y2="76" stroke="#dcbd84"/>
+          <rect x="290" y="48" width="38" height="28" rx="4" fill="#ecdab2"/><rect x="340" y="48" width="38" height="28" rx="4" fill="#e0c089"/><rect x="390" y="48" width="38" height="28" rx="4" fill="#d3a85f"/><rect x="440" y="48" width="38" height="28" rx="4" fill="#c08a3e"/><rect x="490" y="48" width="38" height="28" rx="4" fill="#e0c089"/><rect x="540" y="48" width="38" height="28" rx="4" fill="#b5781f"/><rect x="590" y="48" width="38" height="28" rx="4" fill="#d3a85f"/><rect x="640" y="48" width="38" height="28" rx="4" fill="#c08a3e"/><rect x="690" y="48" width="38" height="28" rx="4" fill="#ecdab2"/><rect x="740" y="48" width="38" height="28" rx="4" fill="#b5781f"/><rect x="790" y="48" width="38" height="28" rx="4" fill="#d3a85f"/><rect x="840" y="48" width="38" height="28" rx="4" fill="#c08a3e"/>
+          <!-- band 2: water -->
+          <rect x="70" y="106" width="860" height="56" rx="9" fill="#e4eef5" stroke="#a9cbdf"/>
+          <text x="92" y="132" font-family="'Syne',sans-serif" font-size="16" font-weight="700" fill="#1e4f73">Wai</text>
+          <text x="92" y="150" font-size="11" fill="#28608a">Water &amp; rainfall</text>
+          <line x1="250" y1="120" x2="250" y2="148" stroke="#a9cbdf"/>
+          <rect x="290" y="120" width="38" height="28" rx="4" fill="#cfe2ef"/><rect x="340" y="120" width="38" height="28" rx="4" fill="#9fc4dd"/><rect x="390" y="120" width="38" height="28" rx="4" fill="#cfe2ef"/><rect x="440" y="120" width="38" height="28" rx="4" fill="#5e93b8"/><rect x="490" y="120" width="38" height="28" rx="4" fill="#3d7aa3"/><rect x="540" y="120" width="38" height="28" rx="4" fill="#9fc4dd"/><rect x="590" y="120" width="38" height="28" rx="4" fill="#1e4f73"/><rect x="640" y="120" width="38" height="28" rx="4" fill="#3d7aa3"/><rect x="690" y="120" width="38" height="28" rx="4" fill="#5e93b8"/><rect x="740" y="120" width="38" height="28" rx="4" fill="#1e4f73"/><rect x="790" y="120" width="38" height="28" rx="4" fill="#9fc4dd"/><rect x="840" y="120" width="38" height="28" rx="4" fill="#3d7aa3"/>
+          <!-- band 3: sun/canopy -->
+          <rect x="70" y="178" width="860" height="56" rx="9" fill="#f3f0d6" stroke="#cfd193"/>
+          <text x="92" y="204" font-family="'Syne',sans-serif" font-size="16" font-weight="700" fill="#7a6a14">L&#257;</text>
+          <text x="92" y="222" font-size="11" fill="#8a7a1e">Sunlight &amp; canopy</text>
+          <line x1="250" y1="192" x2="250" y2="220" stroke="#cfd193"/>
+          <rect x="290" y="192" width="38" height="28" rx="4" fill="#eceabb"/><rect x="340" y="192" width="38" height="28" rx="4" fill="#dcd886"/><rect x="390" y="192" width="38" height="28" rx="4" fill="#c9c155"/><rect x="440" y="192" width="38" height="28" rx="4" fill="#eceabb"/><rect x="490" y="192" width="38" height="28" rx="4" fill="#dcd886"/><rect x="540" y="192" width="38" height="28" rx="4" fill="#c9c155"/><rect x="590" y="192" width="38" height="28" rx="4" fill="#b0a83e"/><rect x="640" y="192" width="38" height="28" rx="4" fill="#dcd886"/><rect x="690" y="192" width="38" height="28" rx="4" fill="#c9c155"/><rect x="740" y="192" width="38" height="28" rx="4" fill="#b0a83e"/><rect x="790" y="192" width="38" height="28" rx="4" fill="#eceabb"/><rect x="840" y="192" width="38" height="28" rx="4" fill="#c9c155"/>
+          <!-- band 4: existing wauke -->
+          <rect x="70" y="250" width="860" height="56" rx="9" fill="#e6f0e6" stroke="#9cc0a6"/>
+          <text x="92" y="276" font-family="'Syne',sans-serif" font-size="16" font-weight="700" fill="#234b37">Wauke</text>
+          <text x="92" y="294" font-size="11" fill="#3f7256">Existing sites</text>
+          <line x1="250" y1="264" x2="250" y2="292" stroke="#9cc0a6"/>
+          <rect x="290" y="264" width="38" height="28" rx="4" fill="#e6f0e6"/><rect x="340" y="264" width="38" height="28" rx="4" fill="#3f7256"/><rect x="390" y="264" width="38" height="28" rx="4" fill="#e6f0e6"/><rect x="440" y="264" width="38" height="28" rx="4" fill="#e6f0e6"/><rect x="490" y="264" width="38" height="28" rx="4" fill="#3f7256"/><rect x="540" y="264" width="38" height="28" rx="4" fill="#e6f0e6"/><rect x="590" y="264" width="38" height="28" rx="4" fill="#2c5440"/><rect x="640" y="264" width="38" height="28" rx="4" fill="#e6f0e6"/><rect x="690" y="264" width="38" height="28" rx="4" fill="#3f7256"/><rect x="740" y="264" width="38" height="28" rx="4" fill="#2c5440"/><rect x="790" y="264" width="38" height="28" rx="4" fill="#e6f0e6"/><rect x="840" y="264" width="38" height="28" rx="4" fill="#e6f0e6"/>
+          <!-- convergence -->
+          <text x="500" y="344" text-anchor="middle" font-size="11" font-weight="600" letter-spacing="2.5" fill="#2c5440">WEIGHTED OVERLAY</text>
+          <line x1="500" y1="352" x2="500" y2="388" stroke="#2c5440" stroke-width="3" marker-end="url(#arrDown)"/>
+          <!-- output band -->
+          <rect x="70" y="402" width="860" height="100" rx="11" fill="url(#viaGrad)"/>
+          <text x="96" y="448" font-family="'Syne',sans-serif" font-size="22" font-weight="800" fill="#fbf7ee">Ho&#699;oulu</text>
+          <text x="96" y="472" font-size="12.5" fill="#eef5ee">Propagation potential</text>
+          <text x="360" y="438" font-size="11" font-weight="600" letter-spacing="2" fill="#3a4a44">LOW</text>
+          <text x="820" y="438" font-size="11" font-weight="600" letter-spacing="2" fill="#eef5ee" text-anchor="end">HIGH VIABILITY</text>
+          <rect x="690" y="452" width="100" height="30" rx="15" fill="rgba(255,255,255,.16)" stroke="#ffd45c"/><text x="740" y="471" text-anchor="middle" font-size="11" fill="#fbf7ee">K&#257;ne&#699;ohe</text>
+          <rect x="800" y="452" width="118" height="30" rx="15" fill="rgba(255,255,255,.16)" stroke="#ffd45c"/><text x="859" y="471" text-anchor="middle" font-size="11" fill="#fbf7ee">Windward valleys</text>
+        </g>
+      </svg>
+      <figcaption><b>Ecological conditions, read as layers</b> &mdash; soil, water, sunlight, and existing growth are weighted and overlaid to model where expanded wauke cultivation is spatially viable. <b>Hoʻoulu</b>: to grow, to propagate.</figcaption>
+    </figure>
 
     <div class="cs-section reveal">
       <span class="cs-section-label">Key Decisions</span>
